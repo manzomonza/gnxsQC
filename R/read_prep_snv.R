@@ -8,6 +8,7 @@
 #' @examples
 readin_prepfiles = function(filepath){
   prepsnv = readr::read_tsv(filepath)
+  if(nrow(prepsnv) > 0){
   prepsnv$filepath = filepath
   prepsnv = prepsnv[which(colnames(prepsnv) %in% c("gene","coding","one_AA", "filepath"))]
   prepsnv = tidyr::unite(prepsnv,col = "variants", c(gene, one_AA, coding), sep = "_" )
@@ -16,4 +17,5 @@ readin_prepfiles = function(filepath){
   #prepsnv = tidyr::nest(prepsnv, variants=mtbp)
   #prepsnv = dplyr::mutate(prepsnv, variants = paste(unlist(variants), collapse = "; "))
   return(prepsnv)
+  }
 }
