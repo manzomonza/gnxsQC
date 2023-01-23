@@ -3,6 +3,8 @@
 export(extract_info)
 export(jac_distance_mat)
 export(jacc_distance)
+export(overlap_coef_mat)
+export(overlap_distance)
 export(readin_actList_entry)
 export(readin_prepfiles)
 export(readin_snvindel)
